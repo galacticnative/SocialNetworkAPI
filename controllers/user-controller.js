@@ -1,7 +1,7 @@
 const { User } = require('../models');
 
 const userController = {
-    // get all pizzas
+    // get all users
     getAllUsers(req, res) {
         User.find({})
             .populate({

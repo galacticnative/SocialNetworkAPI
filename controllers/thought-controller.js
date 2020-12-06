@@ -75,12 +75,11 @@ const thoughtController = {
 
     // remove reaction
     removeReaction({ params }, res) {
-        Thought.findOneAndDelete(
+        Thought.findOneAndUpdate(
             { _id: params.thoughtId },
             { $pull: { reactions: { reactionId: params.reactionId } } },
             { new: true }
         )
-        // create a delete function of reaction within then and NOT line 78 to not delete thought
             .then(dbReactionData => res.json(dbReactionData))
             .catch(err => res.json(err));
     },
